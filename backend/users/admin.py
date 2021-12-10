@@ -3,5 +3,5 @@ from .models import Profile
 
 # register the user
 class ProfileAdmin(admin.ModelAdmin):
-    readonly_fields = ('user','id','user_status')
+    readonly_fields = ('id','user_status')
 admin.site.register(Profile, ProfileAdmin)
