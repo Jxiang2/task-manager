@@ -29,7 +29,7 @@ class Profile(models.Model):
     
     # user can be customised in core app, when user model deleted -> delete profile
     user = models.OneToOneField(User, on_delete=models.CASCADE)
-    user_status = models.IntegerField(choices=STATUS_CHOICES, default=0)
+    user_status = models.IntegerField(choices=STATUS_CHOICES, default=1)
     image = models.FileField(upload_to=user_profile_image_path, blank=True, null=True)
     
     def __str__(self):
