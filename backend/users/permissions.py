@@ -3,7 +3,7 @@ from rest_framework import permissions
 class IsUserOwnerOrGetPostOnly(permissions.BasePermission):
     '''
     custom permission for userViewSet to only allow users to edit their 
-    own profiles, otherwise they can only GET and POST
+    own users, otherwise they can only GET and POST
     '''
     
     # has permission() only called when perform list and create, we want to to be true by Default
@@ -21,6 +21,22 @@ class IsUserOwnerOrGetPostOnly(permissions.BasePermission):
             # false -> permission denied
             return request.user == obj
         
+        return False
+    
+class IsProfileOwnerOrReadOnly(permissions.BasePermission):
+    '''
+    custom permission for userViewSet to only allow users to edit their 
+    own profiles, otherwise they can only GET and POST
+    '''
+    def has_permission(self, request, view):
+        return True
+    
+    # obj: profile
+    def has_object_permission(self, request, view, obj):
+        if request.method in permissions.SAFE_METHODS: # GET(retrieve) & POST(none in this case)
+            return True
+        if not request.user.is_anonymous:
+            return request.user.profile == obj
         return False
             
             

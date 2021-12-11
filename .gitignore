@@ -131,3 +131,4 @@ dmypy.json
 # my ignores
 .DS_Store
 media/
+.vscode
