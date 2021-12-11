@@ -38,10 +38,38 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'rest_framework',
+    'oauth2_provider',
+    'social_django',
+    'rest_framework_social_oauth2',
     
     # myapp
     'users',
 ]
+
+REST_FRAMEWORK = {
+    'DEFAULT_PERMISSION_CLASSES': [
+        # IsAuthenticated == user logged in ; now only read methods are allowed
+        'rest_framework.permissions.IsAuthenticatedOrReadOnly',
+    ],
+
+    # Default auth dependencies, debug mode only
+    'DEFAULT_AUTHENTICATION_CLASSES': [
+        # Rest Framework Auth Classes
+        'rest_framework.authentication.BasicAuthentication',
+        'rest_framework.authentication.SessionAuthentication',
+
+        # OAuth2 classes
+        'oauth2_provider.contrib.rest_framework.OAuth2Authentication',
+        'rest_framework_social_oauth2.authentication.SocialAuthentication',
+    ],
+}
+
+AUTHENTICATION_BACKENDS = (
+    # django auth debug only
+    'django.contrib.auth.backends.ModelBackend',
+    # oauth2 token autentication
+    'rest_framework_social_oauth2.backends.DjangoOAuth2',
+)
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -62,6 +90,8 @@ TEMPLATES = [
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
+                'social_django.context_processors.backends',
+                'social_django.context_processors.login_redirect',
                 'django.template.context_processors.debug',
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
