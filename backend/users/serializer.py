@@ -5,10 +5,10 @@ from rest_framework import serializers
 
 class ProfileSerializer(serializers.ModelSerializer):
     user = serializers.HyperlinkedRelatedField(read_only=True, many=False, view_name='user-detail')
-    
+    group = serializers.HyperlinkedRelatedField(read_only=True, many=False, view_name='group-detail')
     class Meta:
         model = Profile
-        fields = ['url', 'id', 'user', 'image']
+        fields = ['url', 'user', 'image', 'group']
 
 class UserSerializer(serializers.ModelSerializer):
     
@@ -26,7 +26,8 @@ class UserSerializer(serializers.ModelSerializer):
         password = data.get('password', None)
         # register
         if request_method == "POST":
-            raise serializers.ValidationError({"info":"Plz provide pwd"})
+            if password == None:
+                raise serializers.ValidationError({"info":"Plz provide pwd"})
         # updaate
         elif request_method == "PUT" or request_method == "PATCH":
             old_password = data.get("old_password", None)

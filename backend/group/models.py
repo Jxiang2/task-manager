@@ -11,7 +11,7 @@ class GenerateGroupImage(object):
     # auto called when class is constructed
     def __call__(self, instance, filename):
         ext = filename.split('.')[-1]
-        path = f'media/groups/{instance.id}/images/'
+        path = f'media/groups/{instance.group_id}/images/'
         name = f'main.{ext}'
         return os.path.join(path, name)
     
