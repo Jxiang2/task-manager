@@ -9,7 +9,7 @@ class ProfileSerializer(serializers.ModelSerializer):
     group = serializers.HyperlinkedRelatedField(read_only=True, many=False, view_name='group-detail')
     class Meta:
         model = Profile
-        fields = ['url', 'user', 'display_name', 'image', 'group',]
+        fields = ['url', 'user', 'user_status', 'display_name', 'image', 'group',]
 
 class UserSerializer(serializers.ModelSerializer):
     
