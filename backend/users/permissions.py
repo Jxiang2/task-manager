@@ -13,7 +13,7 @@ class IsUserOwnerOrGetPostOnly(permissions.BasePermission):
     # has_object_permission() called when perform retrieve, update, partial_update and delete on a specific resource
     # obj: the actual object to be permitted or not, in this case, auth user
     def has_object_permission(self, request, view, obj):
-        if request.method in permissions.SAFE_METHODS: # GET(retrieve) & POST(none in this case)
+        if request.method in permissions.SAFE_METHODS: # GET(retrieve)
             return True
         
         if not request.user.is_anonymous:

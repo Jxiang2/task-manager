@@ -44,6 +44,7 @@ INSTALLED_APPS = [
     
     # myapp
     'users',
+    'group',
 ]
 
 REST_FRAMEWORK = {
