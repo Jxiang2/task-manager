@@ -46,6 +46,7 @@ INSTALLED_APPS = [
     # myapp
     'users',
     'group',
+    'task',
 ]
 
 REST_FRAMEWORK = {
