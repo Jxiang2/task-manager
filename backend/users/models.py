@@ -38,3 +38,6 @@ class Profile(models.Model):
     
     def __str__(self):
         return f'{self.user.username}\'s Profile'
+    
+    def get_display_name(self):
+        return f'{self.user.first_name}_{self.user.last_name}'
