@@ -59,7 +59,7 @@ class TaskList(models.Model):
                                    on_delete=SET_NULL, related_name="task_lists")
     name = name = models.CharField(max_length=200)
     description = models.TextField(null=True, blank=True)
-    task_status = models.CharField(
+    status = models.CharField(
         max_length=2,
         choices=TASK_STATUS_CHOICES,
         default=NOT_COMPLETED
