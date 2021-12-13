@@ -2,7 +2,8 @@ from rest_framework import permissions
 
 class IsAllowedToEditTaskListElseNone(permissions.BasePermission):
     '''
-    Custom permissions for task list viewset to allow the creator editing persmission.
+    Custom permissions for task list viewset to allow group members to view the task list 
+    and the creator editing persmission.
     '''
     def has_permission(self, request, view):
         if request.method in permissions.SAFE_METHODS:
@@ -22,7 +23,8 @@ class IsAllowedToEditTaskListElseNone(permissions.BasePermission):
         
 class IsAllowedToEditTaskElseNone(permissions.BasePermission):
     '''
-    Custom permissions for task viewset to only allow members of a group access to it's tasks
+    Custom permissions for task viewset to only allow members of a group to view it's tasks
+    and task creator or tasklist creator to edit the tasks
     '''
     
     def has_permission(self, request, view):
@@ -48,5 +50,6 @@ class IsAllowedToEditAttachmentOrNone(permissions.BasePermission):
 
     def has_object_permission(self, request, view, obj):
         if not request.user.is_anonymous:
+            # only group members can access their task attachment
             return request.user.profile.group == obj.task.task_list.group
         
