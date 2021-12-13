@@ -18,7 +18,8 @@ class IsAllowedToEditTaskListElseNone(permissions.BasePermission):
             if request.method in permissions.SAFE_METHODS: # only group members can see the task list
                 return request.user.profile.group == obj.group
             else: # only task list creator can edit the task list
-                return request.user.profile == obj.created_by
+                if request.user.profile.group == obj.group:
+                    return request.user.profile == obj.created_by
         return False
         
 class IsAllowedToEditTaskElseNone(permissions.BasePermission):
@@ -36,7 +37,8 @@ class IsAllowedToEditTaskElseNone(permissions.BasePermission):
             if request.method in permissions.SAFE_METHODS: # only group members can see the task details
                 return request.user.profile.group == obj.task_list.group
             else: # only task creator and tasklist owner can edit the task
-                return (request.user.profile == obj.created_by) or (request.user.profile == obj.task_list.created_by)
+                if request.user.profile.group == obj.task_list.group:
+                    return (request.user.profile == obj.created_by) or (request.user.profile == obj.task_list.created_by)
         return False
         
         
