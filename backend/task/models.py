@@ -46,6 +46,9 @@ class Task(models.Model):
     def __str__(self):
         return f'{self.id} | {self.name}'
     
+    def get_group(self):
+        return self.task_list.group
+    
 class TaskList(models.Model):
     created_on = models.DateTimeField(auto_now_add=True)
     completed_on = models.DateTimeField(null=True, blank=True)

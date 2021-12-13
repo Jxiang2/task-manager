@@ -64,8 +64,6 @@ class GroupViewSet(viewsets.ModelViewSet):
                 return Response({"detail": f'removed {user.username} from {group.name}'},status=status.HTTP_204_NO_CONTENT)
             else:
                 return Response({"detail": f'{user.username} is not in the group'},status=status.HTTP_400_BAD_REQUEST)
-                
-                
         except User.DoesNotExist as e:
             return Response({"detail": "user does not exist"}, status=status.HTTP_404_NOT_FOUND)
         

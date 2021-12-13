@@ -19,6 +19,7 @@ from django.contrib import admin
 from django.urls import path, include
 from users import router as user_api_router
 from group import router as group_api_router
+from task import router as task_api_router
 
 # oauth2
 auth_api_urls = [
@@ -32,6 +33,7 @@ api_url_pattern = [
     # user api endpoints
     path(r'accounts/', include(user_api_router.router.urls)),
     path(r'group/', include(group_api_router.router.urls)),
+    path(r'task/', include(task_api_router.router.urls)),
     path(r'auth/', include(auth_api_urls)),
 ]
 
