@@ -116,8 +116,12 @@ WSGI_APPLICATION = 'task_api.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'dcae5pp9er8vjr', 
+        'USER': 'wgkuqayqbvxolp', 
+        'PASSWORD': 'a54ef306082ea826637febc6ac34b294c7c5c4827966fca2c2746c2d94691df8',
+        'HOST': 'ec2-184-73-25-2.compute-1.amazonaws.com', 
+        'PORT': '5432',
     }
 }
 
