@@ -8,6 +8,13 @@ class GroupSerializer(serializers.ModelSerializer):
     members_count = serializers.IntegerField(read_only=True)
     task_lists = serializers.HyperlinkedRelatedField(read_only=True, many=True, view_name="tasklist-detail")
     
+    def create(self, validated_data):
+        user_profile = self.context['request'].user.profile
+        group = Group.objects.create(**validated_data)
+        group.manager = user_profile
+        group.save()
+        return group
+    
     class Meta:
         model = Group
         fields = ['url', 'group_id', 'image', 'name', 'created_on', 

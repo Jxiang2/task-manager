@@ -29,7 +29,7 @@ class TaskSerializer(serializers.ModelSerializer):
         model = Task
         fields = ['url', 'id', 'name', 'description', 'task_status', 'group',
                   'created_on', 'created_by', 'completed_on', 'completed_by', 'task_list', 'attachments']
-        read_only_fields = ['created_on', 'completed_on', 'created_by', 'completed_by', 'group']
+        read_only_fields = ['created_on', 'completed_on', 'created_by', 'completed_by', 'group', 'task_status']
 
 class TaskListSerializer(serializers.ModelSerializer):
     # users can edit what group the tasklist belonging to
@@ -60,7 +60,7 @@ class TaskListSerializer(serializers.ModelSerializer):
     class Meta:
         model = TaskList
         fields = ['url', 'id', 'name', 'description', 'status', 'created_on', 'created_by', 'group', 'tasks']
-        read_only_fields = ['created_on', 'created_by', 'task_status']
+        read_only_fields = ['created_on', 'created_by', 'status']
         
 class AttachmentSerializer(serializers.ModelSerializer):
     task = HyperlinkedRelatedField(queryset=Task.objects.all(), many=False, view_name="task-detail")
