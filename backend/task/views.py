@@ -1,4 +1,5 @@
 from django.utils import timezone
+from django_filters.rest_framework import DjangoFilterBackend
 from rest_framework import viewsets, mixins, response
 from rest_framework import status as s
 from rest_framework.decorators import action
@@ -21,10 +22,20 @@ class TaskViewSet(mixins.CreateModelMixin,
                    mixins.RetrieveModelMixin, 
                    mixins.UpdateModelMixin, 
                    mixins.DestroyModelMixin,
+                   mixins.ListModelMixin,
                    viewsets.GenericViewSet):
+    filter_backends = [DjangoFilterBackend]
     serializer_class = TaskSerializer
     permission_classes = [IsAllowedToEditTaskElseNone]
     queryset = Task.objects.all()
+    filterset_fields = ['task_status', ]
+    
+    # def get_queryset(self):
+    #     queryset = super(TaskViewSet, self).get_queryset()
+    #     user_profile = self.request.user.profile
+    #     updated_queryset = queryset.filter(created_by = user_profile)
+    #     return updated_queryset
+            
     
     # only update the field of task status
     @action(detail=True, methods=["PATCH"])

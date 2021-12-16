@@ -1,16 +1,20 @@
+from django.contrib.auth.models import User
+from django_filters.rest_framework import DjangoFilterBackend
 from rest_framework import viewsets, status
+from rest_framework.decorators import action
+from rest_framework.response import Response
 from .models import Group
 from .serializers import GroupSerializer
 from .permissions import IsGroupManagerOrNone
-from rest_framework.decorators import action
-from rest_framework.response import Response
-from django.contrib.auth.models import User
 
 
 class GroupViewSet(viewsets.ModelViewSet):
+    
+    filter_backends = [DjangoFilterBackend]
     permission_classes = [IsGroupManagerOrNone,]
     serializer_class = GroupSerializer
     queryset = Group.objects.all()
+    filterset_fields = ['name', 'points', 'member_set']
     
     # custom action of joining and leaving house, the default oauth2 base permission is applied (if user has token -> has permission)
     @action(detail=True, methods=['POST'], name='Join', permission_classes=[])
