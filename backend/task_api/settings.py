@@ -49,6 +49,7 @@ INSTALLED_APPS = [
     'users',
     'group',
     'task',
+    'background_jobs',
 ]
 
 REST_FRAMEWORK = {
