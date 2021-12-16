@@ -69,7 +69,8 @@ class AttachmentSerializer(serializers.ModelSerializer):
     def validate(self, attrs):
         user_profile = self.context['request'].user.profile
         task = attrs['task']
-        task_list = TaskList.objects.get(tasks__id__exact=task.id)
+        # orm
+        task_list = TaskList.objects.get(tasks__id=task.id)
         if task_list not in user_profile.group.task_lists.all():
             raise serializers.ValidationError({"detail" : "task provided does not belong to group which user is in"})
         return attrs
