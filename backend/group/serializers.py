@@ -13,14 +13,14 @@ class GroupSerializer(serializers.ModelSerializer):
     def create(self, validated_data):
         try:
             user_profile = self.context['request'].user.profile
+            if Group.objects.filter(manager=user_profile).exists():
+                raise serializers.ValidationError({"detail": "one user can only create one group"})
             group = Group.objects.create(**validated_data)
             group.manager = user_profile
-            if user_profile.group != None:
-                raise serializers.ValidationError({"info": "1 user can only create 1 group"})
             group.save()
             return group
         except Exception as e:
-            raise serializers.ValidationError({"info": "creation failed"})
+            raise serializers.ValidationError({"detail": e})
     
     class Meta:
         model = Group
