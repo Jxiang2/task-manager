@@ -13,7 +13,7 @@ class profileViewSet(viewsets.GenericViewSet, mixins.RetrieveModelMixin, mixins.
     permission_classes = [IsProfileOwnerOrReadOnly,]
     serializer_class = ProfileSerializer
     queryset = Profile.objects.all()
-    filterset_fields = ['display_name', 'user_status']
+    filterset_fields = ['user_status']
 
 class userViewSet(viewsets.ModelViewSet):
     

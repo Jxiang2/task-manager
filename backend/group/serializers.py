@@ -1,4 +1,6 @@
 from rest_framework import serializers
+from rest_framework.response import Response
+from rest_framework import status
 from .models import Group
 
 class GroupSerializer(serializers.ModelSerializer):
@@ -9,11 +11,16 @@ class GroupSerializer(serializers.ModelSerializer):
     task_lists = serializers.HyperlinkedRelatedField(read_only=True, many=True, view_name="tasklist-detail")
     
     def create(self, validated_data):
-        user_profile = self.context['request'].user.profile
-        group = Group.objects.create(**validated_data)
-        group.manager = user_profile
-        group.save()
-        return group
+        try:
+            user_profile = self.context['request'].user.profile
+            group = Group.objects.create(**validated_data)
+            group.manager = user_profile
+            if user_profile.group != None:
+                raise serializers.ValidationError({"info": "1 user can only create 1 group"})
+            group.save()
+            return group
+        except Exception as e:
+            raise serializers.ValidationError({"info": "creation failed"})
     
     class Meta:
         model = Group
