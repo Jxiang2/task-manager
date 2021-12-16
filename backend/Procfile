@@ -1,1 +1,2 @@
-web: gunicorn task_api.wegi
+release: python manage.py migrate
+web: gunicorn task_api.wsgi --log-file -
