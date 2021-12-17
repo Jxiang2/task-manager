@@ -1,0 +1,12 @@
+{
+  "type": "service_account",
+  "project_id": "group-task-manager-335320",
+  "private_key_id": "e6ab0b70d6a352b039860851c78f754a8acc5dd0",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvAIBADANBgkqhkiG9w0BAQEFAASCBKYwggSiAgEAAoIBAQDYbJcoedZLWNlt\nJzmO70yucCbHYa0w8CMwX3kjRR9My1x55b1gNtgHH9LhqRd32H3M9sPneJZJLQ9Z\nluaJd9opDMZtmFsEu9baGF1S/Umkz9DjLoNhyAUg5dGUIGclI2vhHQXNBESu9tWl\nDCQ9TqYmYGh3iTjIvrlcEfeJlmOlcY6K3sCYCHfcTbZ25JPb1F4qeYqMJ5UWqi1D\nRNvMdPTRG8b3cyEQYvq6bQ5SoRD0ne/WXBtJUx45UgDtrZ2gqMrm+khCojaSHo0O\nI0ETTe3KmZzrS6NdfBP/uV73miV/LCq7kNKxGnJFNFbV7YXD+7JxdjpGj/2MveGe\nQejNNJdvAgMBAAECggEAXmqpWzgj/AUL/emh27CcJHG7CTqcov/wahcMsw1hxU/m\nzSsj/giPIDSK/HWXTmp9H2D8QExETDJDQxNpCcnmvAfdvUw9UQhdiBIfDKiBa0xa\nVfIh0RPA4QRB9TxZo0Mbuj6+HB3jlO0McY+lc7WPGKjwik2sHy/Nj9QqyLR6Tl85\nowVpROxUWYQJsYXy0F3hdtm/0W6e4WbsQdT1G+Sex4MQocFIGXwllAxLrRPwev69\nM7nNDI/MXl29leY8gIRhnNtP8EnxkFBwHh+b4E+/aRzfGVLKGNiJCKhO8clUzLkN\n0qBUks+o1aj7h1dnMbMOJypxGyHK3FkFFDrftuVzEQKBgQDwbhaYulGc8OAwl5bl\nng37b64fUP+pTKqeJXbCYed/+ZacVFeUr3brrevv4LqOIBEzAzYcngJbOyI8+XG/\nqLg/JPzW38CanuD9PyEmXrkEAywPQNAB6hwM6Q1z4AvV2ohbDMDcIinb01POtwyw\nWbr6DyoA6u88xsae5OHucraBlwKBgQDmcIbluIqaSsGUeJQ1DENGlMP/w+CniJVF\nT9ioCy/2i+Eag0lNzVee+wJ4DUfDUQ0iYBmj9pnYAZRBT7eUPFJEa5FmACFROAhz\n1zZggq0b6bf+cnWnmKdBvBLBzg0XtTSypfk4guLEHZrcKKEvTU/Kek6DiRsEpHGT\nWfjNk8cj6QKBgEUb/9bKx6bK/kY5bKB3/CDoCy7pQ3PQm8J1llttdPOuNIKfI8WT\nYiWAiq8a88Tips74/1befGLo7oCEWxPyVXOhGCRTkLNhM97XhJnY5Gmo18NSp/fE\n6Wc0ni9OmVhRRpyVX+Jm141eg1qJ91XBlSNHtJUq8rWPlYwa0m6N/rPlAoGACwpx\nLCh/W40hYT+1uiTwRD10dpin9t7wZ/W/Z63BioqBKogHxxaDkDZuk9nvCkij3HXG\nRLjX/iV1OPvcy9loB6cvvDddYUrR/Nre3BjmumOkUSiiwnjp6phcPbTlo7Em6ThS\njIaY3tScStgXgPCvVgAuKtcy2DIYzvqMlSzzaaECgYAHES9LCv4F+9I5T6JtRj9m\nBh3ZK+81UezSEylmj6oeO7zx4u5wk4oj11IZAYfKsYNIbxWcrzKSLz7fHitJ61pU\nE+rh7n+EkCh0x2Ugc/LcbTs9lmv0I6DqUsJOlmi4S8q0tlEbGSZpV02w59qC1/hE\niIXr+ZVe6kTefiolwixIdw==\n-----END PRIVATE KEY-----\n",
+  "client_email": "gcs-service-account-group-task@group-task-manager-335320.iam.gserviceaccount.com",
+  "client_id": "109792602043394882228",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/gcs-service-account-group-task%40group-task-manager-335320.iam.gserviceaccount.com"
+}
