@@ -10,7 +10,7 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/4.0/ref/settings/
 """
 
-
+import django_on_heroku
 from google.oauth2 import service_account
 from pathlib import Path
 import os
@@ -186,4 +186,5 @@ DEFAULT_FILE_STORAGE = 'storages.backends.gcloud.GoogleCloudStorage'
 GS_BUCKET_NAME = 'prod_manager_bucket'
 GS_FILE_OVERWRITE = True
 GS_CREDENTIALS = service_account.Credentials.from_service_account_file('group-task-manager-335320-e6ab0b70d6a3.json')
+django_on_heroku.settings(locals())
 
