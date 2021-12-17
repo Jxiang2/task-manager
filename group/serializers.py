@@ -26,6 +26,6 @@ class GroupSerializer(serializers.ModelSerializer):
         model = Group
         fields = ['url', 'group_id', 'image', 'name', 'created_on', 
                   'manager', 'description', 'members_count', 'member_set',
-                  'points', 'completed_tasks_count', 'not_completed_tasks_count', 'task_lists']
+                  'points', 'task_lists']
         # a eaiser way to specify read_only fields
         read_only_fields = ['points', 'completed_tasks_count', 'not_completed_tasks_count',]
