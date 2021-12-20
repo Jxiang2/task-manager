@@ -13,8 +13,7 @@ class GroupViewSet(viewsets.ModelViewSet):
     filter_backends = [DjangoFilterBackend]
     permission_classes = [IsGroupManagerOrNone,]
     serializer_class = GroupSerializer
-    queryset = Group.objects.all()
-    filterset_fields = ['name', 'points', 'member_set']
+    queryset = Group.objects.prefetch_related('member_set', 'task_lists').all()
     
     # custom action of joining and leaving house, the default oauth2 base permission is applied (if user has token -> has permission)
     @action(detail=True, methods=['POST'], name='Join', permission_classes=[])
