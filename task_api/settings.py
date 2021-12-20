@@ -60,6 +60,10 @@ REST_FRAMEWORK = {
         # IsAuthenticated == user logged in ; now only read methods are allowed
         'rest_framework.permissions.IsAuthenticatedOrReadOnly',
     ],
+    
+    # pagination
+    'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.PageNumberPagination',
+    'PAGE_SIZE': 10,
 
     # Default auth dependencies, debug mode only
     'DEFAULT_AUTHENTICATION_CLASSES': [

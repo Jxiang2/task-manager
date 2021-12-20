@@ -15,7 +15,7 @@ class TaskListViewSet(mixins.CreateModelMixin,
                    viewsets.GenericViewSet):
     permission_classes = [IsAllowedToEditTaskListElseNone]
     serializer_class = TaskListSerializer
-    queryset = TaskList.objects.select_related('group').all()
+    queryset = TaskList.objects.select_related('group').prefetch_related('tasks').all()
     
     
 class TaskViewSet(mixins.CreateModelMixin, 
@@ -27,7 +27,7 @@ class TaskViewSet(mixins.CreateModelMixin,
     filter_backends = [DjangoFilterBackend]
     serializer_class = TaskSerializer
     permission_classes = [IsAllowedToEditTaskElseNone]
-    queryset = Task.objects.prefetch_related('task_list', 'attachments').select_related('task_list__group').all()
+    queryset = Task.objects.prefetch_related('task_list', 'attachments').select_related('task_list__group', 'created_by').all()
     
     # def get_queryset(self):
     #     queryset = super(TaskViewSet, self).get_queryset()
