@@ -12,7 +12,7 @@ class profileViewSet(viewsets.GenericViewSet, mixins.RetrieveModelMixin, mixins.
     filter_backends = [DjangoFilterBackend]
     permission_classes = [IsProfileOwnerOrReadOnly,]
     serializer_class = ProfileSerializer
-    queryset = Profile.objects.all()
+    queryset = Profile.objects.select_related('user').all()
     filterset_fields = ['user_status']
 
 class userViewSet(viewsets.ModelViewSet):
@@ -20,5 +20,5 @@ class userViewSet(viewsets.ModelViewSet):
     filter_backends = [DjangoFilterBackend]
     permission_classes = [IsUserOwnerOrGetPostOnly,]
     serializer_class = UserSerializer
-    queryset = User.objects.all()
+    queryset = User.objects.select_related('profile').all()
     filterset_fields = ['first_name', 'last_name']
