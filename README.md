@@ -5,5 +5,5 @@ A task manager app for managing group project tasks and progresses for computing
 https://group-tasks-manager.herokuapp.com/
 
 ## Group API
-https://github.com/Jxiang2/task-manager/blob/main/demo_images/group-tasks-manager.png
+![alt text](https://github.com/Jxiang2/task-manager/blob/main/demo_images/group-tasks-manager.png)
 
