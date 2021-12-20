@@ -12,6 +12,7 @@ Django==3.2
 django-background-tasks==1.2.5
 django-braces==1.15.0
 django-compat==1.0.15
+django-debug-toolbar==3.2.4
 django-filter==21.1
 django-oauth-toolkit==1.5.0
 django-on-heroku==1.1.2

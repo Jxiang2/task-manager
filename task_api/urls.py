@@ -38,6 +38,7 @@ api_url_pattern = [
 ]
 
 urlpatterns = [
+    path('__debug__/', include('debug_toolbar.urls')),
     path('admin/', admin.site.urls),
     path('api/', include(api_url_pattern)),
 ]
