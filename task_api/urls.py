@@ -17,6 +17,8 @@ from django.conf import settings
 from django.conf.urls.static import static
 from django.contrib import admin
 from django.urls import path, include
+from rest_framework.documentation import include_docs_urls
+
 from users import router as user_api_router
 from group import router as group_api_router
 from task import router as task_api_router
@@ -41,6 +43,7 @@ urlpatterns = [
     path('__debug__/', include('debug_toolbar.urls')),
     path('admin/', admin.site.urls),
     path('api/', include(api_url_pattern)),
+    path('docs/', include_docs_urls (title='Group Task Manager API' )),
 ]
 
 # upload media
