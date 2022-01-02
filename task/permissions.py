@@ -27,7 +27,6 @@ class IsAllowedToEditTaskElseNone(permissions.BasePermission):
     Custom permissions for task viewset to only allow members of a group to view it's tasks
     and task creator or tasklist creator to edit the tasks
     '''
-    
     def has_permission(self, request, view):
         if not request.user.is_anonymous:
             return request.user.profile.group != None

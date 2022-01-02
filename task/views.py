@@ -71,9 +71,6 @@ class TaskViewSet(mixins.CreateModelMixin,
         except Exception as e:
             return response.Response({"detail": str(e)}, status=s.HTTP_400_BAD_REQUEST)
             
-            
-        
-            
     
 class AttachmentViewSet(viewsets.GenericViewSet, 
                         mixins.CreateModelMixin, 
