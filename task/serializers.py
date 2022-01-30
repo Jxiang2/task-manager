@@ -11,6 +11,7 @@ class TaskSerializer(serializers.ModelSerializer):
     group = serializers.CharField(source="get_group", read_only=True)
     attachments = serializers.HyperlinkedRelatedField(read_only=True, many=True, view_name="attachment-detail")
     
+    
     # only validate task_list
     def validate_task_list(self, value):
         user_profile = self.context['request'].user.profile
