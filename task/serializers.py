@@ -17,6 +17,7 @@ class TaskSerializer(serializers.ModelSerializer):
         if value not in user_profile.group.task_lists.all():
             raise serializers.ValidationError({"detail": "task list provided does not belong to group which user is in"})
         return value
+    
     # do all validations before using validated data
     def create(self, validated_data):
         user_profile = self.context['request'].user.profile
