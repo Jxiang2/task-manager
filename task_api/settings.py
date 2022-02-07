@@ -80,6 +80,12 @@ REST_FRAMEWORK = {
     'DEFAULT_SCHEMA_CLASS': 'rest_framework.schemas.coreapi.AutoSchema',
 }
 
+#For allowing json data to be present in the response
+OAUTH2_PROVIDER = {
+    # other OAUTH2 settings
+    'OAUTH2_BACKEND_CLASS': 'oauth2_provider.oauth2_backends.JSONOAuthLibCore'
+}
+
 INTERNAL_IPS = [
     # ...
     "127.0.0.1",

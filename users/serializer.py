@@ -1,5 +1,4 @@
 from django.contrib.auth.models import User
-from django.db.models import fields
 from .models import Profile
 from rest_framework import serializers
 

@@ -19,6 +19,8 @@ from django.contrib import admin
 from django.urls import path, include
 from rest_framework.documentation import include_docs_urls
 
+from users.views import CustomTokenView
+
 from users import router as user_api_router
 from group import router as group_api_router
 from task import router as task_api_router
@@ -36,6 +38,7 @@ api_url_pattern = [
     path(r'accounts/', include(user_api_router.router.urls)),
     path(r'group/', include(group_api_router.router.urls)),
     path(r'task/', include(task_api_router.router.urls)),
+    path(r'auth/token/', CustomTokenView.as_view()),
     path(r'auth/', include(auth_api_urls)),
 ]
 

@@ -28,7 +28,7 @@ class Profile(models.Model):
     ]
     
     # user can be customised in core app, when user model deleted -> delete the Profile model associated with the user
-    user = models.OneToOneField(User, on_delete=models.CASCADE)
+    user = models.OneToOneField(User, on_delete=models.CASCADE, related_name='profile')
     user_status = models.IntegerField(choices=STATUS_CHOICES, default=1)
     image = models.FileField(upload_to=user_profile_image_path, blank=True, null=True)
     # house 1 - * profiles ; if the group is deleted, set the group attr to null
